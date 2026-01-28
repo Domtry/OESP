@@ -1,15 +1,15 @@
 {
   "name": "ts-oesp-monorepo",
-  "private": true,
-  "version": "0.1.0",
+  "private": false,
+  "version": "0.1.1",
   "description": "OESP TypeScript monorepo (core + adapters)",
   "workspaces": [
-    "packages/*",
-    "examples/*"
+    "packages/*"
   ],
   "scripts": {
-    "build": "pnpm -r build",
-    "test": "pnpm -r test",
-    "lint": "pnpm -r lint"
+    "build": "npm run build --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present",
+    "lint": "npm run lint --workspaces --if-present",
+    "release": "npm run build && npm publish --workspaces --access public"
   }
 }

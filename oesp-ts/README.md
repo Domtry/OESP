@@ -1,5 +1,7 @@
 # OESP TypeScript Monorepo
 
+GitHub: [https://github.com/domtry/oesp/oesp-ts](https://github.com/domtry/oesp/oesp-ts)
+
 Packages:
 - `@oesp/sdk` — core universel (agnostique)
 - `@oesp/crypto-sodium` — CryptoProvider via libsodium (Node+Browser)
@@ -7,9 +9,9 @@ Packages:
 - `@oesp/storage-memory` — ReplayStore en mémoire
 - (optionnels) `crypto-react-native`, `keystore-react-native`, `storage-sqlite-*`
 
-Build: `pnpm install && pnpm build`
+Build: `npm install && npm run build`
 
-Tests: `pnpm test`
+Tests: `npm test`
 
 Exemples:
 - Node: `cd examples/node-demo && pnpm build && node dist/index.js`

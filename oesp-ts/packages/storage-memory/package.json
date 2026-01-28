@@ -2,12 +2,27 @@
   "name": "@oesp/storage-memory",
   "version": "0.1.0",
   "description": "ReplayStore mémoire",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oesp-protocol/oesp-ts.git",
+    "directory": "packages/storage-memory"
+  },
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "tsup src/index.ts --dts --format esm,cjs",
     "lint": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@oesp/sdk": "0.1.0"
   },
   "devDependencies": {
     "tsup": "^8.0.1",
