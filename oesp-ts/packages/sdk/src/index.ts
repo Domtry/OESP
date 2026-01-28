@@ -197,3 +197,4 @@ function concatBytes(a: Uint8Array, b: Uint8Array): Uint8Array {
 }
 
 export * from './types';
+export { base64Encode, base64Decode, b64urlEncode, b64urlDecode, canonicalJsonBytes } from './utils';

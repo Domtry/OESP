@@ -1,6 +1,6 @@
-# OESP SDK Python v0.2.0
+# OESP SDK Python v0.2.1
 
-SDK Python pour le protocole **OESP (Offline Exchange Secure Protocol)**. Cette version propose une architecture duale Client/Serveur.
+SDK Python pour le protocole **OESP (Offline Exchange Secure Protocol)**. Cette version propose une architecture modulaire pour le transport et la synchronisation.
 
 ## Architecture
 
@@ -8,6 +8,8 @@ SDK Python pour le protocole **OESP (Offline Exchange Secure Protocol)**. Cette 
 - **oesp_sdk/crypto**: Primitives cryptographiques (Ed25519, X25519, AEAD).
 - **oesp_sdk/client**: Implémentation pour les terminaux mobiles/PC (Signer/Chiffrer).
 - **oesp_sdk/server**: Implémentation pour les backends (Vérifier/Parser).
+- **oesp_sdk/transport**: Modules de communication (BLE GATT).
+- **oesp_sdk/sync**: Client de synchronisation HTTP asynchrone.
 
 ## Installation
 
