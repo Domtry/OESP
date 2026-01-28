@@ -21,6 +21,12 @@ export class MockBleGattLink implements BleGattLink {
     this.notifyCb = cb;
   }
 
+  offTxNotify(cb: (frameBytes: Uint8Array) => void): void {
+    if (this.notifyCb === cb) {
+      this.notifyCb = undefined;
+    }
+  }
+
   async startNotify(): Promise<void> {
     console.log("Mock: Started Notify");
   }
