@@ -11,17 +11,29 @@ SDK Python pour le protocole **OESP (Offline Exchange Secure Protocol)**. Cette 
 
 ## Installation
 
-Il est recommandé d'utiliser un environnement virtuel ou **uv** pour installer le SDK :
+Le SDK peut être installé directement depuis les sources ou via pip (si publié).
+
+### Depuis les sources (Développement)
 
 ```bash
-# Avec uv (recommandé)
-uv pip install oesp-sdk
+# Cloner le repository
+git clone https://github.com/Domtry/OESP.git
+cd OESP/oesp_sdk_python
 
-# Avec pip (dans un venv)
-python3 -m venv .venv
-source .venv/bin/activate
+# Installation en mode éditable (recommandé pour le dev)
+pip install -e .
+
+# Installation des dépendances de développement
+pip install -e ".[dev]"
+```
+
+### Via pip
+
+```bash
 pip install oesp-sdk
 ```
+
+Il est recommandé d'utiliser un environnement virtuel ou **uv** :
 
 ## Utilisation Côté Client (Pack/Unpack)
 
