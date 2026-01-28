@@ -1,0 +1,31 @@
+{
+  "name": "@oesp/sdk",
+  "version": "0.1.0",
+  "description": "OESP core SDK (agnostique)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oesp-protocol/oesp-ts.git",
+    "directory": "packages/sdk"
+  },
+  "type": "module",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsup src/index.ts --dts --format esm,cjs",
+    "test": "vitest run",
+    "lint": "tsc -p tsconfig.json --noEmit"
+  },
+  "devDependencies": {
+    "tsup": "^8.0.1",
+    "typescript": "^5.6.3",
+    "vitest": "^1.6.0"
+  }
+}

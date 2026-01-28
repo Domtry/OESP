@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>OESP Browser Demo</title>
+  </head>
+  <body>
+    <h1>OESP Browser Demo</h1>
+    <pre id="out"></pre>
+    <script type="module">
+      import { OESPClient } from '@oesp/sdk';
+      import { SodiumCryptoProvider } from '@oesp/crypto-sodium';
+      import { MemoryReplayStore } from '@oesp/storage-memory';
+
+      const out = document.getElementById('out');
+      function log(...args) { out.textContent += args.map(a => typeof a==='string'?a:JSON.stringify(a)).join(' ') + '\n'; }
+
+      const crypto = new SodiumCryptoProvider();
+      const keystore = {
+        async getOrCreateIdentity() {
+          // Demo: generate keys using WebCrypto-like random via adapter: not implemented here
+          // For browser, you'd use a real keystore adapter; we stub with sodium for demo
+          await import('libsodium-wrappers-sumo').then(m => m.default.ready);
+          const sodium = (await import('libsodium-wrappers-sumo')).default;
+          const ed = sodium.crypto_sign_keypair();
+          const x = sodium.crypto_kx_keypair();
+          return { ed25519Priv: ed.privateKey, ed25519Pub: ed.publicKey, x25519Priv: x.privateKey, x25519Pub: x.publicKey };
+        }
+      };
+      const replay = new MemoryReplayStore();
+      const client = new OESPClient({ crypto, keystore, replay });
+      const did = await client.getDid();
+      log('DID', did);
+      const token = await client.pack(did, { hello: 'browser' });
+      log('token', token);
+      const v = await client.verify(token);
+      log('verified', v.verified);
+      const d = await client.unpack(token);
+      log('plaintext', new TextDecoder().decode(d.plaintext));
+    </script>
+  </body>
+  </html>
