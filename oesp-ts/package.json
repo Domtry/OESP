@@ -1,0 +1,15 @@
+{
+  "name": "ts-oesp-monorepo",
+  "private": true,
+  "version": "0.1.0",
+  "description": "OESP TypeScript monorepo (core + adapters)",
+  "workspaces": [
+    "packages/*",
+    "examples/*"
+  ],
+  "scripts": {
+    "build": "pnpm -r build",
+    "test": "pnpm -r test",
+    "lint": "pnpm -r lint"
+  }
+}
