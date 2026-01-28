@@ -38,6 +38,26 @@ const decoded = await client.unpack(token);
 console.log("Decoded body:", decoded.plaintext);
 ```
 
+### DID Management
+
+You can retrieve your own DID or derive a DID from any public key.
+
+#### Via Client (Recommended)
+```typescript
+// Get the DID associated with the keystore's public key
+const myDid = await client.getDid();
+console.log("My DID:", myDid);
+```
+
+#### Via Utility Function (Low-level)
+```typescript
+import { deriveDid } from '@oesp/sdk';
+
+// If you have a raw public key (Uint8Array)
+const pubKey = new Uint8Array([...]);
+const did = deriveDid(pubKey);
+```
+
 ## Features
 
 - **End-to-End Encryption**: X25519 Key Exchange + ChaCha20-Poly1305.

@@ -50,6 +50,26 @@ decoded = client.unpack(token)
 print(decoded["plaintext"])
 ```
 
+## Gestion des DID (Identité)
+
+Vous pouvez récupérer votre propre DID ou calculer le DID d'une clé publique arbitraire.
+
+### Via le Client (Recommandé)
+```python
+# Récupère le DID associé à la clé publique du keystore
+my_did = client.get_did()
+print(f"Mon DID : {my_did}")
+```
+
+### Via la fonction utilitaire (Bas niveau)
+```python
+from oesp_sdk.core.did import derive_did
+
+# Si vous avez une clé publique brute (bytes)
+pub_key_bytes = b"..." 
+did = derive_did(pub_key_bytes)
+```
+
 ## Utilisation Côté Serveur (Verify/Parse)
 
 Le serveur ne possède pas de clés privées. Il vérifie uniquement l'intégrité et applique les politiques de sécurité.
