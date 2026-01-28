@@ -2,11 +2,13 @@ from setuptools import setup, find_packages
 
 setup(
     name="oesp-sdk",
-    version="0.2.0",
+    version="0.2.2",
     packages=find_packages(include=["oesp_sdk", "oesp_sdk.*"]),
     install_requires=[
         "PyNaCl>=1.5.0",
         "cryptography>=43.0.0",
+        "bleak>=0.21.0",
+        "httpx>=0.25.0",
     ],
     extras_require={
         "dev": [

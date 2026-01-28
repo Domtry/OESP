@@ -1,0 +1,25 @@
+# Version Control
+.git
+.gitignore
+
+# Dependencies
+node_modules
+**/node_modules
+
+# Build Outputs
+dist
+**/dist
+build
+**/build
+
+# Environment Variables
+.env
+.env.local
+
+# System Files
+.DS_Store
+Thumbs.db
+
+# Docker
+docker-compose.yml
+Dockerfile

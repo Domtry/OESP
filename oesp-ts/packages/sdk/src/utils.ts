@@ -59,7 +59,7 @@ function base32encode(bytes: Uint8Array): string {
 
 const base64Alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
 
-function base64Encode(bytes: Uint8Array): string {
+export function base64Encode(bytes: Uint8Array): string {
   let output = '';
   let i = 0;
   while (i < bytes.length) {
@@ -75,7 +75,7 @@ function base64Encode(bytes: Uint8Array): string {
   return output;
 }
 
-function base64Decode(s: string): Uint8Array {
+export function base64Decode(s: string): Uint8Array {
   // Remove whitespace
   s = s.replace(/\s/g, '');
   const len = s.length;

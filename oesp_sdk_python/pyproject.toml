@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "oesp-sdk"
-version = "0.2.0"
+version = "0.2.3"
 description = "Offline Exchange Secure Protocol (OESP) SDK for Python"
 readme = "README.md"
 requires-python = ">=3.11"
@@ -23,9 +23,9 @@ classifiers = [
 ]
 dependencies = [
     "PyNaCl>=1.5.0",
-    "build>=1.4.0",
     "cryptography>=43.0.0",
-    "twine>=6.2.0",
+    "bleak>=0.21.0",
+    "httpx>=0.25.0",
 ]
 
 [project.urls]

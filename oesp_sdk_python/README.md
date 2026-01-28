@@ -1,6 +1,6 @@
-# OESP SDK Python v0.2.0
+# OESP SDK Python v0.2.3
 
-SDK Python pour le protocole **OESP (Offline Exchange Secure Protocol)**. Cette version propose une architecture duale Client/Serveur.
+SDK Python pour le protocole **OESP (Offline Exchange Secure Protocol)**. Cette version propose une architecture modulaire pour le transport et la synchronisation.
 
 ## Architecture
 
@@ -8,6 +8,8 @@ SDK Python pour le protocole **OESP (Offline Exchange Secure Protocol)**. Cette 
 - **oesp_sdk/crypto**: Primitives cryptographiques (Ed25519, X25519, AEAD).
 - **oesp_sdk/client**: Implémentation pour les terminaux mobiles/PC (Signer/Chiffrer).
 - **oesp_sdk/server**: Implémentation pour les backends (Vérifier/Parser).
+- **oesp_sdk/transport**: Modules de communication (BLE GATT) avec support asynchrone.
+- **oesp_sdk/sync**: Client de synchronisation HTTP asynchrone.
 
 ## Installation
 
@@ -45,90 +47,72 @@ from oesp_sdk.core.adapters import Resolver
 
 # 1. Initialiser le Keystore (Identity Ed25519 + KEX X25519)
 keystore = MemoryKeystore()
+client = OESPClient(keystore)
 
-# 2. Implémenter un Resolver pour trouver les clés publiques des destinataires
-class MyResolver:
-    def resolve_did(self, did: str) -> bytes:
-        # Retourne la clé publique X25519 du destinataire
-        return b"..." 
-
-client = OESPClient(keystore, resolver=MyResolver())
-
-# 3. Créer un token sécurisé
-token = client.pack("oesp:did:recipient_id", {"message": "top secret"})
-
-# 4. Ouvrir un token reçu
-decoded = client.unpack(token)
-print(decoded["plaintext"])
-```
-
-## Gestion des DID (Identité)
-
-Vous pouvez récupérer votre propre DID ou calculer le DID d'une clé publique arbitraire.
-
-### Via le Client (Recommandé)
-```python
-# Récupère le DID associé à la clé publique du keystore
-my_did = client.get_did()
-print(f"Mon DID : {my_did}")
-```
-
-### Via la fonction utilitaire (Bas niveau)
-```python
-from oesp_sdk.core.did import derive_did
-
-# Si vous avez une clé publique brute (bytes)
-pub_key_bytes = b"..." 
-did = derive_did(pub_key_bytes)
-```
-
-## Utilisation Côté Serveur (Verify/Parse)
-
-Le serveur ne possède pas de clés privées. Il vérifie uniquement l'intégrité et applique les politiques de sécurité.
-
-```python
-from oesp_sdk.server import verify_token, ServerPolicy, InMemoryReplayStore
-
-# 1. Politique de sécurité
-policy = ServerPolicy(
-    allow_expired=False,
-    max_clock_skew_sec=300
+# 2. Créer un envelope (Ex: Scan d'un QR code contenant les clés publiques)
+envelope = await client.pack_message(
+    payload={"msg": "Hello Offline World"},
+    recipient_did="did:oesp:target-device"
 )
-
-# 2. Store pour l'anti-rejeu
-replay_store = InMemoryReplayStore()
-
-# 3. Vérifier un token
-try:
-    result = verify_token(
-        token, 
-        policy=policy, 
-        replay_store=replay_store
-    )
-    print(f"Token valide de: {result['signer_did']}")
-except Exception as e:
-    print(f"Token invalide: {e}")
 ```
 
-## Security Notes
+## Transport BLE GATT (Asynchrone)
 
-- **Serveur sans clés**: Le module `server` est conçu pour fonctionner sans accès aux clés privées. Il ne peut ni signer ni chiffrer.
-- **Vérifications**: Le serveur vérifie systématiquement:
-    - La structure de l'enveloppe.
-    - La correspondance entre le DID et la clé publique fournie (`derive_did(pub)`).
-    - La signature Ed25519 sur l'ensemble de l'enveloppe et du ciphertext.
-    - L'expiration (`exp`) et la cohérence temporelle (`ts`).
-    - L'anti-rejeu via le message ID (`mid`).
-- **Limites**: Le serveur ne déchiffre pas le contenu (`ct`). Si le serveur doit accéder au contenu, il doit être traité comme un "client" avec son propre Keystore.
+Le module `oesp_sdk.transport` permet l'échange de données via Bluetooth Low Energy (BLE). Il utilise `asyncio` pour gérer les opérations non-bloquantes.
 
-## Plan de Migration (v0.1.x -> v0.2.x)
+```python
+import asyncio
+from oesp_sdk.transport import OESPBleGattTransport, BleakLink
+from bleak import BleakClient
 
-1. **Imports**: 
-   - Ancien: `from oesp.client import OESPClient`
-   - Nouveau: `from oesp_sdk.client import OESPClient`
-2. **Types**: 
-   - `EnvelopeV1` est maintenant une dataclass dans `oesp_sdk.core.envelope`. Utilisez `.to_dict()` si vous avez besoin du dictionnaire brut.
-3. **Exceptions**: 
-   - Les exceptions ont été déplacées dans `oesp_sdk.core.errors`.
-4. **Server**: 
-   - Si vous utilisiez `OESPClient.verify` sur le serveur, remplacez par `oesp_sdk.server.verify_token`.
+async def send_token_via_ble(address, token_bytes):
+    # 1. Connexion via Bleak (librairie asynchrone)
+    async with BleakClient(address) as client:
+        # 2. Initialiser le lien et le transport
+        link = BleakLink(client)
+        transport = OESPBleGattTransport()
+        
+        # 3. Envoyer le token (gère fragmentation et ACK)
+        try:
+            await transport.send_token(token_bytes, link)
+            print("Token envoyé avec succès !")
+        except Exception as e:
+            print(f"Erreur de transport : {e}")
+
+# asyncio.run(send_token_via_ble("AA:BB:CC:DD:EE:FF", b'...'))
+```
+
+## Synchronisation HTTP (Asynchrone)
+
+Le module `oesp_sdk.sync` permet de synchroniser les tokens collectés vers un serveur central. Il supporte l'upload fragmenté (chunked) et la vérification d'intégrité.
+
+```python
+import asyncio
+from oesp_sdk.sync import OESPSyncClient
+
+async def sync_tokens():
+    # 1. Initialiser le client sync
+    client = OESPSyncClient(base_url="https://api.oesp.protocol")
+    
+    tokens = [
+        "OESP1.token1...",
+        "OESP1.token2..."
+    ]
+    
+    # 2. Synchroniser
+    try:
+        result = await client.sync_tokens(
+            tokens=tokens,
+            device_did="oesp:did:my_device"
+        )
+        
+        if result.success:
+            print(f"Succès ! Session ID: {result.session_id}")
+        else:
+            print(f"Erreur: {result.error}")
+            
+    except Exception as e:
+        print(f"Erreur réseau : {e}")
+
+# asyncio.run(sync_tokens())
+```
