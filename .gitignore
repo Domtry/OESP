@@ -3,6 +3,7 @@
 .idea/
 .DS_Store
 .trae
+.pypirc
 
 # Python
 __pycache__/
