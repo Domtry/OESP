@@ -1,13 +1,8 @@
 {
   "name": "@oesp/crypto-sodium",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "CryptoProvider via libsodium-wrappers (Node+Browser)",
   "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/oesp-protocol/oesp-ts.git",
-    "directory": "packages/crypto-sodium"
-  },
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -23,7 +18,7 @@
   },
   "dependencies": {
     "libsodium-wrappers-sumo": "^0.7.14",
-    "@oesp/sdk": "0.1.0"
+    "@oesp/sdk": "0.1.1"
   },
   "devDependencies": {
     "@types/libsodium-wrappers": "^0.7.14",
