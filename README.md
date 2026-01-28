@@ -19,7 +19,7 @@ Le protocole garantit que Device A peut envoyer une donnée à Device B de mani�
 ### Schéma du processus
 
 ```mermaid
-sequence_diagram
+sequenceDiagram
     participant A as Device A (Sender)
     participant B as Device B (Recipient)
 
