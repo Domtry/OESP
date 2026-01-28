@@ -1,0 +1,25 @@
+# IDE
+.vscode/
+.idea/
+.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+env/
+.pytest_cache/
+.coverage
+
+# Node / JS
+node_modules/
+dist/
+*.tsbuildinfo
+
+# Database / Sync
+*.db
+*.sqlite
+
+# OS
+.DS_Store
+Thumbs.db
