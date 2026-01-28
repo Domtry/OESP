@@ -4,6 +4,7 @@
 .DS_Store
 .trae
 .pypirc
+deploy_token.pypirc
 
 # Python
 __pycache__/
