@@ -5,6 +5,7 @@
 .trae
 .pypirc
 deploy_token.pypirc
+deploy_token.pypirec
 
 # Python
 __pycache__/
