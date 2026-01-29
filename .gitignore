@@ -4,6 +4,8 @@
 .DS_Store
 .trae
 .pypirc
+deploy_token.pypirc
+deploy_token.pypirec
 
 # Python
 __pycache__/
@@ -12,6 +14,7 @@ __pycache__/
 env/
 .pytest_cache/
 .coverage
+*.pypirc
 
 # Node / JS
 node_modules/

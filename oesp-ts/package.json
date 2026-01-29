@@ -1,7 +1,7 @@
 {
   "name": "ts-oesp-monorepo",
   "private": false,
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "OESP TypeScript monorepo (core + adapters)",
   "workspaces": [
     "packages/*"
