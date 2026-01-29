@@ -192,10 +192,9 @@ export class OESPBleGattTransport {
 
       const cleanup = () => {
         clearTimeout(timeout);
-        // Note: This still has the issue that we can't easily remove the listener
-        // if the link interface doesn't support offTxNotify.
-        // For now, we'll assume the link implementation handles multiple listeners
-        // or we'd need to extend BleGattLink with removeTxNotify.
+        if (link.offTxNotify) {
+          link.offTxNotify(handler);
+        }
       };
 
       link.onTxNotify(handler);

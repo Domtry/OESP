@@ -12,6 +12,7 @@ __pycache__/
 env/
 .pytest_cache/
 .coverage
+*.pypirc
 
 # Node / JS
 node_modules/
