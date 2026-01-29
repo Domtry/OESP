@@ -13,7 +13,7 @@ WORKDIR /app/oesp-ts
 # Install dependencies including workspace links
 RUN npm install
 # Build required packages in the workspace (skipping keystore-node if it fails)
-RUN npm run build --workspace=@oesp/sdk --workspace=@oesp/crypto-sodium --workspace=@oesp/storage-memory --workspace=@oesp/sync-http --workspace=@oesp/transport-ble-gatt
+RUN npm run build --workspace=@oesp/sdk --workspace=@oesp/crypto-sodium --workspace=@oesp/storage-memory --workspace=@oesp/sync-http --workspace=@oesp/transport-ble-gatt --workspace=@oesp/all
 
 # Build the test app
 WORKDIR /app/oesp-ts-test-app

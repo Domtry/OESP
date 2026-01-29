@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Bluetooth, BluetoothOff, Wifi, WifiOff, RefreshCw } from 'lucide-react';
 import { useOespStore } from '@/store/useOespStore';
-import { OESP_BLE_SERVICE_UUID } from '@oesp/transport-ble-gatt';
+import { OESP_BLE_SERVICE_UUID } from '@oesp/all';
 
 interface BLEDevice {
   id: string;

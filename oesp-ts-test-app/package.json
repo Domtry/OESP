@@ -11,11 +11,6 @@
     "check": "tsc -b --noEmit"
   },
   "dependencies": {
-    "@oesp/crypto-sodium": "file:../oesp-ts/packages/crypto-sodium",
-    "@oesp/sdk": "file:../oesp-ts/packages/sdk",
-    "@oesp/storage-memory": "file:../oesp-ts/packages/storage-memory",
-    "@oesp/sync-http": "file:../oesp-ts/packages/sync-http",
-    "@oesp/transport-ble-gatt": "file:../oesp-ts/packages/transport-ble-gatt",
     "clsx": "^2.1.1",
     "html5-qrcode": "^2.3.8",
     "libsodium-wrappers-sumo": "^0.8.2",
@@ -25,6 +20,12 @@
     "react-dom": "^18.3.1",
     "react-router-dom": "^7.3.0",
     "tailwind-merge": "^3.0.2",
+    "@oesp/sdk": "file:../oesp-ts/packages/sdk",
+    "@oesp/all": "file:../oesp-ts/packages/all",
+    "@oesp/crypto-sodium": "file:../oesp-ts/packages/crypto-sodium",
+    "@oesp/storage-memory": "file:../oesp-ts/packages/storage-memory",
+    "@oesp/sync-http": "file:../oesp-ts/packages/sync-http",
+    "@oesp/transport-ble-gatt": "file:../oesp-ts/packages/transport-ble-gatt",
     "zustand": "^5.0.3"
   },
   "devDependencies": {

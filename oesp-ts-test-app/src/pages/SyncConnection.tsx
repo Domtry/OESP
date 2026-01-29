@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { QRCodeSVG } from 'qrcode.react';
 import { Html5QrcodeScanner } from 'html5-qrcode';
 import { Wifi, Smartphone, Monitor, Loader2, UploadCloud, Camera, X } from 'lucide-react';
-import { OESPSyncClient } from '@oesp/sync-http';
+import { OESPSyncClient } from '@oesp/all';
 import sodium from 'libsodium-wrappers-sumo';
 
 export default function SyncConnection() {

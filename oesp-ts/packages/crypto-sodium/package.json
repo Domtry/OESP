@@ -1,6 +1,6 @@
 {
   "name": "@oesp/crypto-sodium",
-  "version": "0.1.1",
+  "version": "0.1.3",
   "description": "CryptoProvider via libsodium-wrappers (Node+Browser)",
   "license": "MIT",
   "type": "module",

@@ -1,9 +1,14 @@
 import { create } from 'zustand';
-import { OESPClient, Identity, KeyStore } from '@oesp/sdk';
-import { SodiumCryptoProvider, createSodiumCryptoProvider } from '@oesp/crypto-sodium';
-import { MemoryReplayStore } from '@oesp/storage-memory';
+import { 
+  OESPClient, 
+  Identity, 
+  KeyStore, 
+  SodiumCryptoProvider, 
+  createSodiumCryptoProvider,
+  MemoryReplayStore,
+  OESPBleGattTransport
+} from '@oesp/all';
 import { BrowserBleGattLink } from '@/lib/oesp';
-import { OESPBleGattTransport } from '@oesp/transport-ble-gatt';
 
 interface OespState {
   client: OESPClient | null;

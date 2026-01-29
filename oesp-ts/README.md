@@ -1,34 +1,51 @@
-# OESP TypeScript Monorepo
+# OESP TypeScript SDK
 
-GitHub: [https://github.com/domtry/oesp/oesp-ts](https://github.com/domtry/oesp/oesp-ts)
+GitHub: [https://github.com/Domtry/OESP](https://github.com/Domtry/OESP)
 
-Packages:
-- `@oesp/sdk` — core universel (agnostique)
+## Installation
+
+Pour installer l'intégralité du SDK :
+```bash
+npm install @oesp/all
+```
+
+Ou installez uniquement les packages dont vous avez besoin :
+```bash
+npm install @oesp/sdk @oesp/crypto-sodium @oesp/storage-memory
+```
+
+## Packages
+
+- `@oesp/all` — Meta-package incluant tous les modules
+- `@oesp/sdk` — Core universel (agnostique)
 - `@oesp/crypto-sodium` — CryptoProvider via libsodium (Node+Browser)
 - `@oesp/keystore-node` — KeyStore fichier JSON (Node)
 - `@oesp/storage-memory` — ReplayStore en mémoire
-- (optionnels) `crypto-react-native`, `keystore-react-native`, `storage-sqlite-*`
+- `@oesp/sync-http` — Client de synchronisation HTTP
+- `@oesp/transport-ble-gatt` — Transport Bluetooth Low Energy (GATT)
 
-Build: `npm install && npm run build`
+## Build & Tests
 
-Tests: `npm test`
+```bash
+npm install
+npm run build
+npm test
+```
 
-Exemples:
-- Node: `cd examples/node-demo && pnpm build && node dist/index.js`
-- Browser: servez `examples/browser-demo/index.html` via un serveur statique
-- React Native: voir `examples/react-native-demo/README.md`
+## Utilisation Rapide (Node.js)
 
-Initialisation (Node):
 ```ts
-import { OESPClient } from '@oesp/sdk'
-import { createSodiumCryptoProvider } from '@oesp/crypto-sodium'
-import { NodeFileKeyStore } from '@oesp/keystore-node'
-import { MemoryReplayStore } from '@oesp/storage-memory'
+import { OESPClient, createSodiumCryptoProvider, NodeFileKeyStore, MemoryReplayStore } from '@oesp/all'
 
 const crypto = await createSodiumCryptoProvider()
 const keystore = new NodeFileKeyStore('.data/identity.json')
 const replay = new MemoryReplayStore()
+
 const client = new OESPClient({ crypto, keystore, replay })
+
+// Obtenir mon DID
+const myDid = await client.getDid()
+console.log("Mon DID:", myDid)
 ```
 
 ## Exemples Avancés

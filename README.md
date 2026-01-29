@@ -106,8 +106,8 @@ Le token peut être transmis par n'importe quel canal :
 
 Ce dépôt contient l'implémentation complète du protocole, incluant les SDK pour terminaux mobiles et serveurs, ainsi qu'un serveur de synchronisation.
 
+- **[oesp-ts/](./oesp-ts)** : SDK TypeScript / Browser / React Native. Optimisé pour les applications web et mobiles.
 - **[oesp_sdk_python/](./oesp_sdk_python)** : SDK Python (Client & Serveur). Utilisable sur PC, serveurs Linux et systèmes embarqués supportant Python.
-- **[oesp_sdk_ts/](./oesp_sdk_ts)** : SDK TypeScript / React Native. Optimisé pour les applications mobiles Android/iOS.
 - **[oesp_sync_server/](./oesp_sync_server)** : Serveur de synchronisation haute performance (FastAPI + PostgreSQL) permettant de centraliser les journaux de messages offline.
 
 ## Fonctionnement du protocole
@@ -120,29 +120,29 @@ OESP repose sur une architecture d'enveloppe cryptographique :
 
 ## Guide d'intégration
 
-### 1. Développement Mobile (React Native)
-Utilisez le SDK TypeScript pour générer et échanger des tokens sécurisés, même sans connexion Internet.
+### 1. Développement Web & Mobile (TypeScript)
+Utilisez le SDK TypeScript pour générer et échanger des tokens sécurisés.
 ```bash
-npm install @oesp/sdk
+npm install @oesp/all
 ```
 
-### 2. Backend / Serveur
+### 2. Backend / Serveur (Python)
 Utilisez le SDK Python pour vérifier l'authenticité des tokens reçus.
 ```bash
 pip install oesp-sdk
 ```
 
 ### 3. Synchronisation
-Déployez le serveur OESP-SYNC pour permettre aux terminaux de synchroniser leurs journaux de messages dès qu'une connexion Internet est disponible.
+Déployez le serveur OESP-SYNC pour permettre aux terminaux de synchroniser leurs journaux de messages.
 ```bash
 cd oesp_sync_server
-docker-compose up --build
+docker compose up --build
 ```
 
 ## Documentation détaillée
 
+- [Documentation SDK TypeScript (@oesp/all)](./oesp-ts/README.md)
 - [Documentation SDK Python](./oesp_sdk_python/README.md)
-- [Documentation SDK TypeScript](./oesp_sdk_ts/README.md)
 - [Documentation Serveur de Synchro](./oesp_sync_server/README.md)
 
 ## Licence

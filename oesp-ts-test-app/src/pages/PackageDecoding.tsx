@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { FileText, Upload, CheckCircle } from 'lucide-react';
 import { useOespStore } from '@/store/useOespStore';
-import { DecodedMessage } from '@oesp/sdk';
+import { DecodedMessage } from '@oesp/all';
 
 export default function PackageDecoding() {
   const [token, setToken] = useState<string>('');
