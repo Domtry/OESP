@@ -1,0 +1,38 @@
+{
+  "name": "@oesp/all",
+  "private": false,
+  "version": "1.0.0",
+  "description": "Meta-package including all OESP TypeScript SDK modules",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "oesp",
+    "sdk",
+    "did",
+    "crypto",
+    "bluetooth",
+    "sync"
+  ],
+  "author": "OESP Team",
+  "license": "MIT",
+  "dependencies": {
+    "@oesp/core": "workspace:*",
+    "@oesp/crypto-sodium": "workspace:*",
+    "@oesp/storage-memory": "workspace:*",
+    "@oesp/sync-http": "workspace:*",
+    "@oesp/transport-ble-gatt": "workspace:*"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  }
+}
