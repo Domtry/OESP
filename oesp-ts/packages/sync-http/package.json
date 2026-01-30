@@ -1,6 +1,7 @@
 {
   "name": "@oesp/sync-http",
-  "version": "0.1.3",
+  "version": "0.1.4",
+  "private": false,
   "description": "OESP HTTP Sync Client",
   "license": "MIT",
   "type": "module",
@@ -18,7 +19,7 @@
     "lint": "tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {
-    "@oesp/sdk": "0.1.3"
+    "@oesp/sdk": "0.1.0"
   },
   "devDependencies": {
     "tsup": "^8.0.1",

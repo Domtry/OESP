@@ -1,7 +1,7 @@
 {
-  "name": "oesp",
-  "private": false,
-  "version": "0.1.6",
+  "name": "oesp-sdk",
+  "private": true,
+  "version": "0.1.0",
   "description": "OESP TypeScript monorepo (core + adapters)",
   "workspaces": [
     "packages/*"
