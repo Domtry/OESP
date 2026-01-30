@@ -6,6 +6,8 @@
 .pypirc
 deploy_token.pypirc
 deploy_token.pypirec
+.packs/
+*.tgz
 
 # Python
 __pycache__/

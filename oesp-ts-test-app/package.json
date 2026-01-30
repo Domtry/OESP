@@ -11,6 +11,7 @@
     "check": "tsc -b --noEmit"
   },
   "dependencies": {
+    "@oesp/all": "^1.0.0",
     "clsx": "^2.1.1",
     "html5-qrcode": "^2.3.8",
     "libsodium-wrappers-sumo": "^0.8.2",
