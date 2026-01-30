@@ -321,7 +321,7 @@
   resolved "file:../oesp-ts/packages/all"
   dependencies:
     "@oesp/crypto-sodium" "^0.1.3"
-    "@oesp/sdk" "^0.1.3"
+    "@oesp/core" "^0.1.3"
     "@oesp/storage-memory" "^0.1.3"
     "@oesp/sync-http" "^0.1.3"
     "@oesp/transport-ble-gatt" "^0.1.3"
@@ -330,10 +330,10 @@
   version "0.1.3"
   resolved "file:../oesp-ts/packages/crypto-sodium"
   dependencies:
-    "@oesp/sdk" "^0.1.3"
+    "@oesp/core" "^0.1.3"
     libsodium-wrappers-sumo "^0.7.14"
 
-"@oesp/sdk@file:../oesp-ts/packages/sdk":
+"@oesp/core@file:../oesp-ts/packages/sdk":
   version "0.1.3"
   resolved "file:../oesp-ts/packages/sdk"
 
@@ -341,19 +341,19 @@
   version "0.1.3"
   resolved "file:../oesp-ts/packages/storage-memory"
   dependencies:
-    "@oesp/sdk" "^0.1.3"
+    "@oesp/core" "^0.1.3"
 
 "@oesp/sync-http@file:../oesp-ts/packages/sync-http":
   version "0.1.3"
   resolved "file:../oesp-ts/packages/sync-http"
   dependencies:
-    "@oesp/sdk" "0.1.3"
+    "@oesp/core" "0.1.3"
 
 "@oesp/transport-ble-gatt@file:../oesp-ts/packages/transport-ble-gatt":
   version "0.1.3"
   resolved "file:../oesp-ts/packages/transport-ble-gatt"
   dependencies:
-    "@oesp/sdk" "0.1.3"
+    "@oesp/core" "0.1.3"
 
 "@rolldown/pluginutils@1.0.0-beta.27":
   version "1.0.0-beta.27"

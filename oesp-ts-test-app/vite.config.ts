@@ -9,7 +9,7 @@ export default defineConfig({
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
-      "@oesp/sdk": path.resolve(__dirname, "../oesp-ts/packages/sdk/src"),
+      "@oesp/core": path.resolve(__dirname, "../oesp-ts/packages/sdk/src"),
       "@oesp/crypto-sodium": path.resolve(__dirname, "../oesp-ts/packages/crypto-sodium/src"),
       "@oesp/transport-ble-gatt": path.resolve(__dirname, "../oesp-ts/packages/transport-ble-gatt/src"),
       "@oesp/storage-memory": path.resolve(__dirname, "../oesp-ts/packages/storage-memory/src"),
