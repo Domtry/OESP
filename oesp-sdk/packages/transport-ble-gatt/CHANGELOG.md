@@ -4,6 +4,19 @@
 
 ### Major Changes
 
+- c0eaa7c: fix package dependancy link
+- c0eaa7c: fix package dependancy
+
+### Patch Changes
+
+- Updated dependencies [c0eaa7c]
+- Updated dependencies [c0eaa7c]
+  - @oesp/core@7.0.0
+
+## 7.0.0
+
+### Major Changes
+
 - fix package critical dependancy
 
 ### Patch Changes

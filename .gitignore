@@ -8,6 +8,7 @@ deploy_token.pypirc
 deploy_token.pypirec
 .packs/
 *.tgz
+.gemini
 
 # Python
 __pycache__/

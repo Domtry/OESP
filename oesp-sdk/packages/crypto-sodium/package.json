@@ -1,6 +1,6 @@
 {
   "name": "@oesp/crypto-sodium",
-  "version": "6.1.0",
+  "version": "7.0.0",
   "private": false,
   "description": "CryptoProvider via libsodium-wrappers (Node+Browser)",
   "license": "MIT",
@@ -18,8 +18,10 @@
     "lint": "tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {
-    "libsodium-wrappers-sumo": "^0.7.14",
     "@oesp/core": "workspace:*"
+  },
+  "peerDependencies": {
+    "libsodium-wrappers-sumo": "^0.7.14 || ^0.8.0"
   },
   "devDependencies": {
     "@types/libsodium-wrappers": "^0.7.14",

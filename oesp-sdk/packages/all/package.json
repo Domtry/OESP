@@ -1,7 +1,7 @@
 {
   "name": "@oesp/all",
   "private": false,
-  "version": "6.1.0",
+  "version": "7.0.0",
   "description": "Meta-package including all OESP TypeScript SDK modules",
   "type": "module",
   "main": "dist/index.cjs",
@@ -42,6 +42,9 @@
     }
   },
   "sideEffects": false,
+  "peerDependencies": {
+    "libsodium-wrappers-sumo": "^0.7.14 || ^0.8.0"
+  },
   "devDependencies": {
     "tsup": "^8.5.1",
     "typescript": "^5.0.0"

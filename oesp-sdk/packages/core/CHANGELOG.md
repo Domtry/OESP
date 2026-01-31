@@ -1,5 +1,12 @@
 # @oesp/core
 
+## 7.0.0
+
+### Major Changes
+
+- c0eaa7c: fix package dependancy link
+- c0eaa7c: fix package dependancy
+
 ## 6.1.0
 
 ### Major Changes

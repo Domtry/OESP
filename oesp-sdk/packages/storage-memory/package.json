@@ -1,6 +1,6 @@
 {
   "name": "@oesp/storage-memory",
-  "version": "6.1.0",
+  "version": "7.0.0",
   "private": false,
   "description": "ReplayStore mémoire",
   "license": "MIT",

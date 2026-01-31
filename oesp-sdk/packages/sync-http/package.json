@@ -1,6 +1,6 @@
 {
   "name": "@oesp/sync-http",
-  "version": "6.1.0",
+  "version": "7.0.0",
   "private": false,
   "description": "OESP HTTP Sync Client",
   "license": "MIT",
