@@ -1,12 +1,20 @@
 {
   "name": "@oesp/transport-ble-gatt",
-  "version": "1.0.0",
+  "version": "6.1.0",
   "private": false,
   "description": "OESP BLE GATT Transport (P2P offline)",
   "license": "MIT",
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "sideEffects": false,
   "files": [
     "dist"
   ],
@@ -14,7 +22,7 @@
     "access": "public"
   },
   "scripts": {
-    "build": "tsup src/index.ts --dts --format esm,cjs",
+    "build": "tsc -p tsconfig.build.json",
     "test": "vitest run",
     "lint": "tsc -p tsconfig.json --noEmit"
   },

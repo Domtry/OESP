@@ -11,9 +11,11 @@ export function getSyncConfig(overrides: Partial<SyncConfig> = {}): SyncConfig {
   let envBaseUrl: string | undefined;
   
   // Node.js
-  if (typeof process !== "undefined" && process.env?.OESP_SYNC_BASE_URL) {
-    envBaseUrl = process.env.OESP_SYNC_BASE_URL;
+  const nodeEnv = (globalThis as any)?.process?.env;
+  if (nodeEnv?.OESP_SYNC_BASE_URL) {
+    envBaseUrl = nodeEnv.OESP_SYNC_BASE_URL;
   }
+
   
   // Vite / Web
   // @ts-ignore

@@ -1,6 +1,6 @@
 {
   "name": "@oesp/keystore-node",
-  "version": "1.0.0",
+  "version": "6.1.0",
   "private": false,
   "description": "KeyStore Node (fichier JSON)",
   "license": "MIT",

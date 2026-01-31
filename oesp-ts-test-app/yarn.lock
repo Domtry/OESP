@@ -441,50 +441,59 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
-"@oesp/all@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@oesp/all/-/all-1.0.0.tgz#e94ee1e1a4c208976c2224911797cd685d0342b2"
-  integrity sha512-lYzT9KkQYYuzXF/FXTAYQtUZMojfXk5i44onRuuJhO1PxK5iIQkmzvgIvB0FDX1yXrLnXAxDn6HsDYM6feqoUQ==
+"@oesp/all@^6.1.0":
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/@oesp/all/-/all-6.1.0.tgz#013908802b60fcd7cfc0b80168581ff787c4f2bb"
+  integrity sha512-pufNl7WDAufWxSoKDqvxeo/YCVD4qFA+AL4JE/JxkI3jSc+LDZfh+PoaR96p4rwgbDxUhbjGOs/Qi+xubSJdxg==
   dependencies:
-    "@oesp/core" "workspace:*"
-    "@oesp/crypto-sodium" "workspace:*"
-    "@oesp/storage-memory" "workspace:*"
-    "@oesp/sync-http" "workspace:*"
-    "@oesp/transport-ble-gatt" "workspace:*"
+    "@oesp/core" "6.1.0"
+    "@oesp/crypto-sodium" "6.1.0"
+    "@oesp/keystore-node" "6.1.0"
+    "@oesp/storage-memory" "6.1.0"
+    "@oesp/sync-http" "6.1.0"
+    "@oesp/transport-ble-gatt" "6.1.0"
 
-"@oesp/core@workspace:*":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@oesp/core/-/core-1.0.0.tgz#c8206d98b2650e30776773aaf056a0188f965566"
-  integrity sha512-VlYuCdWfWXO4p4ya/T0SSjC/pbu6OfDBq069m/iTKaR0aXaTW1ggvxGtN8m1gWayJrGWhCKqW9ciBZDk3/qe3A==
+"@oesp/core@6.1.0":
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/@oesp/core/-/core-6.1.0.tgz#c8654c663c37e5ca971c687f6f7fa47d24ca4a01"
+  integrity sha512-vwrHHhBB9ErNEYPf4umYJuqisoFIMp3izcd6y4gi7gKQQvnKMYaad7KPdjxE51GuUNve2cizWaYi7CHcs4n80g==
 
-"@oesp/crypto-sodium@workspace:*":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@oesp/crypto-sodium/-/crypto-sodium-1.0.0.tgz#452534860cff908a2169050e1235da31d0931b3c"
-  integrity sha512-mfhEMlngh+azhonFCzRLy8Biz+/DNL490LXkARfzTob/g1SxoghX4b4dLxgSYLwbszY8gxC80PX13wSwr0TOaw==
+"@oesp/crypto-sodium@6.1.0":
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/@oesp/crypto-sodium/-/crypto-sodium-6.1.0.tgz#733710351906e4bc8905fa65f508193fa092791d"
+  integrity sha512-NF+shpYVG6tEa/zo9xbIQmI7efWiO4eNeHvSSeo0FTzBq7E8EVAudEdTc2mRUuD27tdohZ1Iyhj5NuIO2Oi/jA==
   dependencies:
-    "@oesp/core" "workspace:*"
+    "@oesp/core" "6.1.0"
     libsodium-wrappers-sumo "^0.7.14"
 
-"@oesp/storage-memory@workspace:*":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@oesp/storage-memory/-/storage-memory-1.0.0.tgz#97715f340cf442e37025549bf9e08107a724aee4"
-  integrity sha512-ZYD8ABwdKOpQx0d/cDUgyA8sPkQr+7QFakkgmTiKR4pQOJPsBAdr/KajJDpn2SyCzZGN+O/gj0fwdU1uFrCxSA==
+"@oesp/keystore-node@6.1.0":
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/@oesp/keystore-node/-/keystore-node-6.1.0.tgz#24c4afa099fd2c0fd68fcda1c6fb743b809a8849"
+  integrity sha512-59k9ptS2Owdy/Ojm61bd/oYmGRiK3CD6Wc5F9wvLqK9gFKji9GUB46ccaYl/P0jlnK/LKnCF3oLVVM1D1qqHhQ==
   dependencies:
-    "@oesp/core" "workspace:*"
+    "@oesp/core" "6.1.0"
+    libsodium-wrappers-sumo "^0.7.14"
 
-"@oesp/sync-http@workspace:*":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@oesp/sync-http/-/sync-http-1.0.0.tgz#674994228bb276dc9c5d1fdedf8b2b29304ceb57"
-  integrity sha512-I98mVrTvoOxH+w7IixN96I4Xkov8oSC0dzFAzerV6B6SHNanERobsRbOsZDwM4m/zwZfusgLnDAYhsjp/VMz3A==
+"@oesp/storage-memory@6.1.0":
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/@oesp/storage-memory/-/storage-memory-6.1.0.tgz#1da1ba4c76aa8b9a5812f27d338370021a7be441"
+  integrity sha512-UqkOpDdxOBNC9KYq27H570uqOeY9P6vQumd+nzIazSy79eVk22FETQ2BC0Zlg4g775SbqGW++9YI6aKp8X9gBA==
   dependencies:
-    "@oesp/core" "workspace:*"
+    "@oesp/core" "6.1.0"
 
-"@oesp/transport-ble-gatt@workspace:*":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@oesp/transport-ble-gatt/-/transport-ble-gatt-1.0.0.tgz#c8b7a71ca717e34a0f2038bd9e8755a6abea785b"
-  integrity sha512-BLSlOLarNp/aeHLSJW6YO7p07OmkpYCZXuxczzKSEuGA8+32vgSya31VWe/TOSPpvfgtrjGg+9JvS1zDCVphog==
+"@oesp/sync-http@6.1.0":
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/@oesp/sync-http/-/sync-http-6.1.0.tgz#c3df4935b53ba91ab9e960d975c083795698381d"
+  integrity sha512-yrGmyiX4d7ShMbcUU/SmReH3eKQMMYk6/TsSXqv6WbG/TSkYfBZfMS+tU4vTS7IDvDU5tdJIAvyadVZSoVyVvQ==
   dependencies:
-    "@oesp/core" "workspace:*"
+    "@oesp/core" "6.1.0"
+
+"@oesp/transport-ble-gatt@6.1.0":
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/@oesp/transport-ble-gatt/-/transport-ble-gatt-6.1.0.tgz#1572909dc2e4b001c1aae6a4b7fd83956934c9fd"
+  integrity sha512-dMGDoCiPq5WyeYE0q2YRPcYQkZjX4oQJZfcyvq2DL/9KYGP/C/Ax9J/1Pb5WrpeFlo0jNlIwKLhL4V0De3OWEw==
+  dependencies:
+    "@oesp/core" "6.1.0"
 
 "@rolldown/pluginutils@1.0.0-beta.27":
   version "1.0.0-beta.27"
